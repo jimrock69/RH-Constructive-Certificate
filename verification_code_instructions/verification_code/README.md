@@ -78,7 +78,8 @@ The logic is anchored by **Four Axiomatic Pillars** (Section 4.0), representing 
 2. **Environment:** Ensure **Lean 4 (v4.27.0)** is installed.
 3. **Windows Requirement:** For successful Mathlib synchronization, you **MUST** enable Case Sensitivity on the build folder via terminal:
    `fsutil.exe file setCaseSensitiveInfo .lake/packages enable`
-4. **Execution:** From the `verification_code` directory, run `lake update` followed by `lake build`.
+4. **Execution:** From the `verification_code` directory, run "lake exe cache get" (Downloads pre-compiled Mathlib dependencies—saves ~1 hour).
+Then run "lake build" (Compiles the primary proof objects).
 5. **Verification:** A successful `#eval!` output of **25** in Section 13.0 constitutes a completed machine-certified proof.
 
 #### **LaTeX Manuscript**
