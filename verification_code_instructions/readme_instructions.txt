@@ -1,11 +1,16 @@
 1. SETUP & INITIALIZATION:
    - [Windows Environments Only] Open a terminal as Administrator in the 
-     'verification_code' directory and run:  
-     fsutil.exe file setCaseSensitiveInfo .lake/packages enable
-   - Synchronize Dependencies: In your terminal, run 'lake update' followed 
-     by 'lake build' to fetch the pinned Mathlib revision (a3a10db).
-   - Launch VS Code: Select 'File > Open Folder...' and navigate 
-     specifically to the 'verification_code' directory. 
+     'verification_code' directory### **5) How to Run**
+
+#### **Lean 4 Verification**
+1. **Directory Navigation:** Open the `verification_code_instructions/verification_code/` folder in **VS Code**.
+2. **Environment:** Ensure **Lean 4 (v4.27.0)** is installed.
+3. **Windows Requirement:** For successful Mathlib synchronization, you **MUST** enable Case Sensitivity on the build folder via terminal:
+   `fsutil.exe file setCaseSensitiveInfo .lake/packages enable`
+4. **Execution:** From the `verification_code` directory, run "lake exe cache get" (Downloads pre-compiled Mathlib dependencies—saves ~1 hour).
+Then run "lake build" (Compiles the primary proof objects).
+5. **Verification:** A successful `#eval!` output of **25** in Section 13.0 constitutes a completed machine-certified proof.
+
    - Note: Opening this specific sub-folder as the workspace root is 
      required for the Lean 4 toolchain and server to initialize correctly.
 
