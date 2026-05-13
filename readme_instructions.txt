@@ -27,6 +27,6 @@
 
 4. LOGICAL ARCHITECTURE (13 MANIFOLDS):
    - Navigate to Section 4.0 'The Axiomatic Bridge'.
-   - Place your cursor at the end of at the 'theorem'block 135:0
+   - Place your cursor at the end of at the 'theorem'block 152:0
    - The Infoview will display "Goals accomplished!" or the signature, confirming 
      the axiomatic integrity of the manifold.
