@@ -29,8 +29,8 @@
   - SECTION 6.0: Symplectic-Vaughan Bound Verification.
   - SECTION 7.0: Spectral Rigidness & Saturation Analysis.
   - SECTION 8.0: Ergodicity & Weyl Equidistribution of Deltas.
-  - SECTION 9.0: THE P2 TERM (EXACT MANIFOLD)
-  - SECTION 10.0: Higher Order Terms (P3, P4 calculation).
+  - SECTION 9.0: Generalized $P_k$ Engine & Exact Composite Scaling.
+  - SECTION 10.0: Dynamic $K(x)$ Limit & Geometric Saturation Boundary.
   - SECTION 11.0: THE COMPLETE EXACT SIEVE (FINAL)
   - SECTION 12.0: SPECTRAL VERIFICATION
   - SECTION 13.0: FORMAL PROJECT CONCLUSION
