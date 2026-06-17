@@ -1,0 +1,303 @@
+\ProvidesPackage{kjm}
+
+\usepackage[a4paper,left=2cm,right=1.5cm,top=1in,bottom=1.5cm,asymmetric]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx} %Font.
+\usepackage[fleqn]{amsmath} %Equations.
+\usepackage[table]{xcolor} %Colored table.
+\usepackage{authblk} %Authors' block.
+\usepackage{fancyhdr} %Headers and footers.
+\usepackage{enumitem} %Custom list labels.
+\usepackage{microtype} %Better spacing.
+\usepackage[compact]{titlesec} %Custom sectioning. 'compact' shrinks all the whitespace around section headings.
+\usepackage[font=small,labelfont=bf]{caption} %Custom captions.
+\usepackage{xcolor} %Colors.
+\usepackage{multirow} %Cells that span multiples columns.
+\usepackage{graphicx} %For images.
+\usepackage{textcomp} %Copyright and registered symbols.
+\usepackage{booktabs} %Better tables.
+\usepackage{xifthen} %IF/ELSE commands
+\usepackage{cuted} %Span figures and equations onto two columns.
+\usepackage{enumitem}
+	\setlist{noitemsep} % Reduce lists' line spacing.
+% Other packages
+\usepackage{amsthm, amscd, amsfonts, amssymb}
+\usepackage [displaymath, mathlines]{lineno}
+\usepackage{hyperref}
+	\hypersetup{colorlinks, linkcolor=blue, urlcolor=blue, citecolor=blue}
+
+
+% New paragraphs will not be indented
+\setlength{\parindent}{0pt}
+
+% Gap between columns
+\setlength{\columnsep}{0.5cm}
+
+% No date
+\date{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{theorem}{Theorem}[section]
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\theoremstyle{plain}
+\newtheorem{pr}[theorem]{Proposition}
+\theoremstyle{plain}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{plain}
+\newtheorem{corrolary}[theorem]{Corollary} %Delete [teo] to re-start numbering
+\theoremstyle{plain}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{plain}
+\newtheorem{lemma}[theorem]{Lemma} %Delete [teo] to re-start numbering
+\theoremstyle{plain}
+\newtheorem{remark}[theorem]{Remark}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% JOURNAL INFORMATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% If you pass an argument, it will be used, otherwise we use the default.
+%\newcommand{\kjmJN}[1]{%
+%\ifthenelse{\isempty{#1}}{International Journal of Applied Mathematical Research}{#1}}
+
+\newcommand{\kjmJN}{Konuralp Journal of Mathematics}
+
+\newcommand{\kjmJI}{IJAMR-min.png}
+
+\newcommand{\kjmJNb}{\textbf{\kjmJN}, 5 (x) (2016) xxx-xxx}
+
+\newcommand{\kjmJS}{Journal home page: www.sciencepubco.com/index.php/IJAMR}
+
+\newcommand{\kjmISSN}{e-ISSN:}
+
+\newcommand{\kjmDoi}{doi:}
+
+\newcommand{\kjmJD}{Research paper, Short communication, Review, Technical paper}
+
+\newcommand{\kjmWarn}{\textcolor{red}{\it \textbf{Please keep only one of the types above and delete the others, including this phrase!}}}
+
+\newcommand{\kjmAbstract}[1]{
+\long\gdef\absText{\fontsize{9pt}{10.8pt}\selectfont#1}
+}
+
+\newcommand{\kjmKeywords}[1]{
+\long\gdef\listKeywords{\it\fontsize{8pt}{9.6pt}\selectfont#1}
+}
+
+\newcommand{\kjmAMS}[1]{
+\long\gdef\listAMS{\it\fontsize{8pt}{9.6pt}\selectfont#1}
+}
+
+\newcommand{\kjmAuthors}{Authors}
+
+\newcommand{\kjmCC}{\includegraphics[width=0.65in,keepaspectratio]{image2.png}}
+
+%\newcommand{\kjmC}{\fontsize{7pt}{8.4pt}\selectfont\bf Copyright \textcopyright~2016 \kjmAuthors. This is an open access article %distributed under the \textcolor{blue}{\underline{Creative Commons Attribution License}}, which permits unrestricted use, distribution, and reproduction in %any medium, provided the original work is properly cited.}
+
+\newcommand{\startsAtpage}[1]{\setcounter{page}{#1}}
+
+%-----------------------------------------------------------------
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Custom Sectioning
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Section
+\titleformat{\section}[block]%
+{\normalfont\fontsize{12}{14.4}\bfseries}{\thesection.}{0.4em}%
+{\normalfont\fontsize{12}{14.4}\bfseries\selectfont}
+
+\titlespacing{\section}{0pt}{10pt}{10pt}
+
+% Subsection
+\titleformat{\subsection}[block]%
+{\normalfont\fontsize{10}{12}\bfseries}{\thesubsection.}{0.4em}%
+{\normalfont\fontsize{10}{12}\bfseries\selectfont}
+
+\titlespacing{\subsection}{0pt}{10pt}{10pt}
+
+% Subsubsection
+\titleformat{\subsubsection}[block]%
+{\normalfont\fontsize{9}{10.8}\bfseries}{\thesubsubsection.}{0.4em}%
+{\normalfont\fontsize{9}{10.8}\bfseries\selectfont}
+
+\titlespacing{\subsubsection}{0pt}{10pt}{10pt}
+
+%-----------------------------------------------------------------
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table columns
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+%-----------------------------------------------------------------
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Headings' styles
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fancypagestyle{firstpage}{
+	\fancyhf{}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0.5pt}
+	\setlength{\headsep}{-0.55in}
+
+	\fancyfoot[L]{%
+		\begin{minipage}{0.09\textwidth}%
+			%\kjmCC% CC Logo
+		\end{minipage} \hfill%
+		\begin{minipage}{\textwidth}%
+			\kjmCH% Text
+		\end{minipage}\vspace{0.01cm}
+ \hfill%
+		\begin{minipage}{\textwidth}%
+			\kjmC% Text
+		\end{minipage}
+}
+}
+
+\fancypagestyle{followingpage}{
+	\fancyhf{} % clear all six fields
+	\fancyhead[LE,RO]{\fontsize{8pt}{9.6pt}\selectfont\thepage}
+	\fancyhead[RE,LO]{\fontsize{8pt}{9.6pt}\selectfont\textit{\kjmJN}}
+	\renewcommand{\headrulewidth}{0.5pt}
+}
+% Default style
+\pagestyle{followingpage}
+% First page style
+\AtBeginDocument{\thispagestyle{firstpage}}
+
+%-----------------------------------------------------------------
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Customizations for authors' affiliation.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand\Authfont{\bfseries}
+\renewcommand\Affilfont{\normalfont\fontsize{9pt}{10.8pt}\itshape}
+\renewcommand\Authands{ and }
+
+%-----------------------------------------------------------------
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Special gray cell for Journal Header.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{gray}{HTML}{F2F2F2}
+\newcommand{\specialcell}[2][c]{%
+	\cellcolor{gray}
+	\begin{tabular}{c}
+	#2
+	\end{tabular}
+}
+
+%-----------------------------------------------------------------
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Group headers and abstract in one column.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\maketitle{
+
+ \begingroup
+ 	\onecolumn\spcMaketitle
+ \endgroup
+
+}
+
+%-----------------------------------------------------------------
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Group headers and abstract in one column.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% All equations must be intirely aligned to the left.
+\setlength{\mathindent}{0cm}
+
+%-----------------------------------------------------------------
+
+
+% Reduce line spacing and font for the bibliography.
+\let\OLDthebibliography\thebibliography
+\renewcommand\thebibliography[1]{
+  \OLDthebibliography{#1}
+  \fontsize{8}{0}\selectfont
+  \setlength{\parskip}{0pt}
+  \setlength{\itemsep}{0pt plus 1ex}
+}
+
+%\setcounter{page}{0}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% First page header, author, abstract and keywords.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Thicker line
+\newcommand{\thickhline}{%
+    \noalign {\ifnum 0=`}\fi \hrule height 0.2em
+    \futurelet \reserved@a \@xhline
+}
+
+% Cell spacing
+\renewcommand{\arraystretch}{1}% Tighter
+
+% The header
+\def\spcMaketitle{
+\vspace*{0.2cm}
+		\begin{center}
+		% @{} removes the cell padding.
+		\begin{tabular}{@{}C{0.7in}C{5in}C{0.8in}@{}}
+		\thickhline
+		 \includegraphics[width=0.7in,keepaspectratio]{logo} &		
+		\specialcell{
+			{\fontsize{8pt}{9.6pt} \it \kjmJNb}\\\\
+			{\fontsize{14pt}{16.8pt}\bf\kjmJN}\\\\
+			{\fontsize{8pt}{9.6pt} \it \kjmJS}\\
+			{\fontsize{8pt}{9.6pt} \it \kjmISSN}\\
+			%{\fontsize{8pt}{9.6pt} \it \kjmDoi}\\
+			%{\fontsize{8pt}{9.6pt} \it \textbf{\kjmJD}}
+		}
+		\vspace*{0.4cm} & %\includegraphics[width=0.75in,keepaspectratio]{IJAMR-min.jpg}
+		\includegraphics[width=0.75in,height=0.972in]{\kjmJI}
+		\\
+		\thickhline
+		\end{tabular}
+		
+		% TITLE
+		\vspace*{1.5cm}
+		{\linespread{1.1}\fontsize{18pt}{21.6pt}\bf \@title\par}%
+		
+		% LIST OF AUTHORS
+		\vspace*{0.5cm}
+		{\fontsize{10pt}{12pt} \@author}		
+				
+		\end{center}
+		
+		\vspace*{0.3cm}
+		
+		% ABSTRACT
+		\hrulefill\\
+		{\fontsize{10pt}{12pt}\textbf{Abstract}\vspace*{12pt}}\\		
+		\absText \\\\		
+		{\fontsize{8pt}{10.8pt}\textit{\textbf{Keywords:}}}		
+		\listKeywords\vspace*{0.05cm}\\
+                     {\fontsize{8pt}{10.8pt}\textit{\textbf{2010 Mathematics Subject Classification:}}}		
+		\listAMS\vspace*{0.05cm}
+				
+		\hrule
+		\vspace*{0.5cm}
+}
+
+%-----------------------------------------------------------------
+
+
+
+\endinput
