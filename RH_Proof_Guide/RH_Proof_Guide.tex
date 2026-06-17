@@ -1,50 +1,17 @@
-\RequirePackage{fix-cm}
-\PassOptionsToPackage{unicode, psdextra}{hyperref}
-\documentclass[sn-mathphys-num, pdflatex]{sn-jnl}
-\usepackage{titlesec}
-\usepackage{graphicx}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath, amssymb, amsthm, amsfonts}
-\usepackage{booktabs}
-\usepackage{tocloft}
-\usepackage{xcolor}
-\usepackage{bookmark} % This loads hyperref automatically in sn-jnl
-
-% This block overrides the Springer default "hidelinks" setting
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=cyan,
-    pdftitle={Recursive Rounding Guide},
-}
-
-% Optional: Force the URL style to be the same as the surrounding text
-\urlstyle{same}
-\raggedbottom
-\setlength{\cftaftertoctitleskip}{20pt} % Adjust this number to increase the gap
-% 4. Enable Subsection Numbering (e.g. 3.1, 3.2)
-\setcounter{secnumdepth}{2} 
-\usepackage{cite}
-
-% Theorem Styles
-\newtheorem{theorem}{Theorem}[section]
-\usepackage{mdframed}
+\documentclass[twoside,9pt]{extarticle}
+\usepackage{kjm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
 \usepackage{listings}
-\usepackage{array}
-\usepackage{tikz}
-\usetikzlibrary{positioning, arrows.meta}
-\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
-\usepackage{xurl}
+\usepackage{xcolor}
 \usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,       % False: boxed links; True: colored links
-    linkcolor=blue,        % Color of internal links
-    citecolor=blue,        % Color of bibliographic citations
-    urlcolor=blue          % Color of external links (like your GitHub and DOI)
-}
+%\usepackage[utf8]{inputenc}
+%\usepackage{booktabs}
+%\usepackage{tocloft}
+%\usepackage{bookmark} 
+\usepackage{tikz}
+\usepackage{mdframed}
 % This isolates the font state completely before building the hyperlink
 \newcommand{\gterm}[2]{\begingroup\normalfont\scshape\hyperlink{#1}{#2}\endgroup}
 % --- Custom Sidebar Environment ---
@@ -68,34 +35,58 @@
 }
 \newcommand{\glink}[2]{\hyperref[gloss:#1]{#2}}
 
-% --- Title Information ---
-\title[Recursive Rounding]{Guide to the ``Recursive Rounding: A Constructive Proof of the Riemann Hypothesis''}
+\renewcommand{\kjmJN}{Konuralp Journal of Mathematics}
+%
+\renewcommand{\kjmJI}{KJM_Cover.jpg}
+%
+\renewcommand{\kjmJNb}{\textbf{\kjmJN}, 5 (x) (2017) xxx-xxx}
+%
+\renewcommand{\kjmJS}{Journal Homepage: \color{blue}www.dergipark.gov.tr/konuralpjournalmath}
+%
+%%%%\renewcommand{\kjmDoi}{doi: xxx}
+\renewcommand{\kjmISSN}{e-ISSN: 2147-625X}
+%
+\renewcommand{\kjmJD}{Research paper}
+%
+\renewcommand{\kjmAuthors}{Author}
+%
+%\renewcommand{\kjmC}{\scriptsize\bf Copyright \textcopyright~2016 \kjmAuthors. This is other copyright notice.}
+%
+%\renewcommand{\kjmCC}{\includegraphics{creative_commons.png}}
+%\renewcommand{\spcWarn}{} % Remove red warning.
 
-\author*[1]{\fnm{James E.} \sur{Rock}}
-\email{jimrock69@comcast.net}
+% The page number this paper will start at.
+\startsAtpage{1}
 
-\affil[1]{\orgname{Independent Researcher}, \orgaddress{\street{5689 Dartmouth Ct.}, \city{Ypsilanti}, \state{MI}, \postcode{48197}, \country{USA}}\\ \text{ORCID: 0000-0003-2858-6077}}
+
 
 \begin{document}
-\maketitle 
-
 \hypersetup{
     pdfauthor={James E. Rock},
     pdftitle={Guide to the Recursive Rounding Proof},
     bookmarksnumbered=true % Numbers the bookmarks in the PDF sidebar
 }
+\title{Guide to the ``Recursive Rounding: A Constructive Proof of the Riemann Hypothesis''}
+
+\author[1*]{\textbf{James E. Rock} \\
+    Independent Researcher \\ Ypsilanti, MI, 734-635-7652 \\
+    ORCID: 0000-0003-2858-6077 \\
+    Email: jimrock69@comcast.net}
+
+\newcommand{\kjmCH}{}
+\newcommand{\kjmC}{\fontsize{7pt}{8.4pt}\selectfont\bf \textit{Email addresses}: \color{blue} sarikayamz@gmail.com (Mehmet Zeki Sarikaya), naktan@gmail.com (Nesip Aktan), fuatusta@duzce.edu.tr (Fuat Usta)}
+
+\kjmAbstract{
+This technical guide serves as a comprehensive companion to the manuscript, "Recursive Rounding: A Constructive Proof of the Riemann Hypothesis," providing an expository bridge between the rigorous formal verification and the underlying geometric intuition. While the primary proof utilizes a machine-certified \textbf{Lean 4} environment to establish the arithmetic exactitude of the \textbf{Sympletic Plane Correlation (SPC)}, this commentary translates those results into the language of discrete dynamical systems and symplectic geometry. The guide details the 13-manifold construction, illustrating how the prime-counting error is kinematically restricted by a volume-preserving Hamiltonian flow $H=xp$. By mapping the arithmetic residuals of the Exact Sieve onto a 13-dimensional configuration space, the author demonstrates that the fluctuations of the prime-counting function are not stochastic but are governed by deterministic shadowing and spectral rigidity. Central to this exposition is the derivation of the \textbf{Symplectic-Vaughan constant ($C_{SV} \approx 0.225$)}, which acts as a rigid saturation limit for the manifold's information capacity. Ultimately, this document facilitates a deeper understanding of the transition from discrete "primality fuel" to continuous ergodicity. It provides a roadmap for navigating the 13 logical manifolds of the computational certificate, ensuring that the constructive seal of the Riemann Hypothesis is accessible to both specialists in automated reasoning and researchers in analytic number theory.
+}
+
+
+\kjmKeywords{Riemann Hypothesis, Recursive Rounding, Symplectic Geometry, Lean 4, Formal Verification}
+\kjmAMS{03B35, 11M26, 11Y35}
 
 \maketitle
 
-\begin{abstract}
-{ }This technical guide serves as a comprehensive companion to the manuscript, "Recursive Rounding: A Constructive Proof of the Riemann Hypothesis," providing an expository bridge between the rigorous formal verification and the underlying geometric intuition. While the primary proof utilizes a machine-certified \textbf{Lean 4} environment to establish the arithmetic exactitude of the \textbf{Symmetric Sieve Correlation (SSC)}, this commentary translates those results into the language of discrete dynamical systems and symplectic geometry. The guide details the 13-manifold construction, illustrating how the prime-counting error is kinematically restricted by a volume-preserving Hamiltonian flow $H=xp$. By mapping the arithmetic residuals of the Exact Sieve onto a 13-dimensional configuration space, the author demonstrates that the fluctuations of the prime-counting function are not stochastic but are governed by deterministic shadowing and spectral rigidity. Central to this exposition is the derivation of the \textbf{Symplectic-Vaughan constant ($C_{SV} \approx 0.225$)}, which acts as a rigid saturation limit for the manifold's information capacity. Ultimately, this document facilitates a deeper understanding of the transition from discrete "primality fuel" to continuous ergodicity. It provides a roadmap for navigating the 13 logical manifolds of the computational certificate, ensuring that the constructive seal of the Riemann Hypothesis is accessible to both specialists in automated reasoning and researchers in analytic number theory.
-\end{abstract}
-
-\tableofcontents
-
-% --- SECTION 1 ---
-\section{Introduction: }
-
+\section{Introduction}
 \textit{Guidance: This section traces the foundations of the proof. Note: Every term in} \textsc{Small Caps} \textit{is a clickable link to the Glossary in Appendix A, which provides a technical definition and traces its specific utility in the primary Proof.}
 \subsection{Purpose of this Document}
 This document and the primary document ''Recursive Rounding: A Constructive Proof of the Riemann Hypothesis'' is available in a public repository:  
@@ -466,7 +457,22 @@ The structure is complete. To quote Peter Shaffer's \textit{Amadeus}:
 ``Displace one note and there would be diminution. Displace one phrase and the structure would fall.''
 \end{quote}
 The \gterm{rh}{Riemann Hypothesis} is true because the integers permit no other structure.
-% --- APPENDIX A: MASTER GLOSSARY ---
+
+\section*{Article Information}
+\textbf{Acknowledgements:} The author acknowledges the use of \textbf{Gemini} \url{https://gemini.google.com} (a Large Language Model by Google) to assist in drafting the manuscript's expository prose. The author has critically reviewed all AI-assisted text and code formatting, and assumes full, sole accountability for the accuracy, integrity, and logical validity of this manuscript and its accompanying computational certificate.
+
+\section*{Ethical Compliance}
+\noindent \textbf{Publication Statement:} This manuscript is original work and is not under consideration for publication elsewhere. 
+
+\noindent \textbf{Conflict of Interest Disclosure:} I have no conflicts of interest to disclose.   
+
+\noindent \textbf{Supporting Organizations:} No grants were received from any public, private or non-profit organizations for this research. 
+
+\noindent \textbf{Ethical Approval and Participant Consent:} Not Applicable. 
+
+\noindent \textbf{Availability of data and materials:} Not applicable.
+
+\section*{Supplement}
 \section*{Appendix A: Glossary of Terms}
 \addcontentsline{toc}{section}{Appendix A: Glossary of Terms}
 \textit{A reference guide to the specific terminology used. Terms are sorted alphabetically.}
@@ -570,7 +576,6 @@ Together, this $(12+1)$ architecture forms the minimal stable embedding that pre
     \item[Weyl's Equidistribution Theorem] \hypertarget{weyl}{}\phantomsection\label{gloss:weyl} (Section 4.4) \hfill \\
     The foundation for proving the residuals fill the torus $\mathbb{T}^{13}$ uniformly.
 \end{description}
-% --- Appendix B ---
 \section*{Appendix B: Anticipated Objections}
 \addcontentsline{toc}{section}{Appendix B: Anticipated Objections}
 
@@ -625,5 +630,5 @@ Together, this $(12+1)$ architecture forms the minimal stable embedding that pre
     \item \textbf{Deterministic Shadowing:} In dynamical systems, the \textbf{Shadowing Lemma} guarantees that for a uniformly hyperbolic system such as $H=xp$, the discrete trajectory remains within a bounded distance of the continuous flow. The discrete points generated by the sieve are kinematically ``trapped.'' The ``quantization noise'' is not discarded but serves as the specific phase-space coordinate that defines the ergodic trajectory on the manifold.
     \item \textbf{Topological Invariance:} Because the sifting process is a conservative system rather than a diffusive one, the discrete jumps are topologically prohibited from drifting into the ``stochastic expansion'' permitted by random walk models.
 \end{enumerate}
-\section{AI Disclosure:} The author acknowledges the use of \textbf{Gemini} \url{https://gemini.google.com} (a Large Language Model by Google) to assist in drafting the manuscript's expository prose. The author has critically reviewed all AI-assisted text and code formatting, and assumes full, sole accountability for the accuracy, integrity, and logical validity of this manuscript and its accompanying computational certificate.
+
 \end{document}
